@@ -5,16 +5,49 @@ from .models import Location, Patient, Prescription
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = '__all__'
+        fields = (
+            'pk',
+            'store_number',
+            'address',
+            'phone_number',
+            'city',
+            'state',
+            'zipcode',
+        )
 
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
-        fields = '__all__'
+        fields = (
+            'pk',
+            'patient_number',
+            'first_name',
+            'last_name',
+            'date_of_birth',
+            'address',
+            'city',
+            'state',
+            'zipcode',
+            'email',
+            'cell_phone',
+        )
 
 
 class PrescriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prescription
-        fields = '__all__'
+        fields = (
+            'pk',
+            'patient',
+            'patient_number',
+            'rx_number',
+            'name',
+            'dosage',
+            'description',
+            'refill',
+            'cost',
+            'prescription_date',
+            'status',
+            'pickup_date',
+        )

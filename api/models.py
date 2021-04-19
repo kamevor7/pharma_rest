@@ -44,8 +44,8 @@ class Patient(models.Model):
 
 
 class Prescription(models.Model):
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
-    rx_number = models.IntegerField(blank=False, null=False)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='prescriptions')
+    rx_number = models.IntegerField()
     name = models.CharField(max_length=50)
     dosage = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
